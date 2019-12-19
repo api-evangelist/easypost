@@ -1,0 +1,87 @@
+{
+    "name": "EasyPost",
+    "description": "EasyPost is the simple shipping API for the UPS API, USPS API, Fedex API, DHL API, and more. Compare rates, buy postage, track packages, verify addresses, and more.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1578-easypost.jpg",
+    "tags": [
+        "api provider",
+        "have api",
+        "packages",
+        "postage",
+        "tracking"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/easypost\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "EasyPost",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1578-easypost.jpg",
+            "humanURL": "https:\/\/www.easypost.com\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/easypost-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Authentication",
+            "url": "https:\/\/www.easypost.com\/docs\/api#authentication"
+        },
+        {
+            "type": "Base",
+            "url": "https:\/\/api.easypost.com"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.geteasypost.com\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/easypost"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/easypost"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@easypost.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@easypost.com"
+        },
+        {
+            "type": "Errors",
+            "url": "https:\/\/www.easypost.com\/docs\/api#errors"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/EasyPost"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.easypost.com\/pricing"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/easypost"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/www.easypost.com\/docs\/api#webhooks"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.easypost.com\/"
+        }
+    ]
+}
