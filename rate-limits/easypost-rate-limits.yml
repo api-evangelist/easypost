@@ -5,31 +5,43 @@ provider: EasyPost
 providerId: easypost
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Shipping
 - Logistics
 - Multi-Carrier
+- Tracking
 - Labels
-- API
+- Insurance
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for EasyPost. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  EasyPost applies per-account rate limits and returns HTTP 429 with Retry-After when exceeded.
+  Default sustained throughput is in the tens of requests per second per account; bursting beyond your
+  account profile triggers throttling. Higher limits are available on request and via enterprise
+  contracts.
+notes: Per-account; baseline tens of RPS; higher on request.
 sources:
-- https://www.easypost.com/
+- https://docs.easypost.com/docs/rate-limits
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Per account (sustained)
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: requests-per-second
+  limit: tens of RPS (account-defined)
+  notes: Throttled with 429; use bulk endpoints when available.
+- name: Burst
+  scope: account
+  metric: burst
+  limit: account-defined
+  notes: Sustained burst beyond profile triggers 429.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor 429/Retry-After with exponential backoff and jitter.
+- name: Batch Operations
+  description: Use Batch endpoints for high-volume label creation to reduce per-call overhead.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

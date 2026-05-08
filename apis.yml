@@ -3,21 +3,89 @@ url: https://raw.githubusercontent.com/api-evangelist/easypost/refs/heads/main/a
 name: EasyPost
 x-type: company
 description: >-
-  EasyPost is a multi-carrier shipping API platform supporting 100+ carriers with rate-shopping, label generation, tracking, and address verification.
+  EasyPost is a multi-carrier shipping API platform for the United States and international markets.
+  It exposes a REST API spanning shipments, rating, labels, tracking, addresses, parcels, insurance,
+  claims, pickups, scan forms, refunds, batches, end-shippers, reports, customs info, carrier
+  accounts, and webhooks. EasyPost integrates 100+ carriers including USPS, UPS, FedEx, DHL, Canada
+  Post, and Royal Mail.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Shipping
   - Logistics
   - Multi-Carrier
+  - Tracking
   - Labels
-  - API
+  - Insurance
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: easypost:shipping
+    name: EasyPost Shipping API
+    description: >-
+      Core REST API. Resources: Shipments (immutable; ship + buy rate), Rates, Addresses, Parcels,
+      CustomsInfo, Forms, Labels (PNG/PDF/ZPL/EPL2), Pickups, ScanForms, Refunds, Batches, EndShippers,
+      CarrierAccounts. Authentication uses your API key as HTTP Basic auth username (EASYPOST_API_KEY).
+      Test and Production keys are issued separately.
+    humanURL: https://docs.easypost.com/docs/shipments
+    baseURL: https://api.easypost.com/v2
+    tags:
+      - Shipments
+      - Rates
+      - Labels
+      - Addresses
+      - Pickups
+      - Refunds
+    properties:
+      - type: Documentation
+        url: https://docs.easypost.com/
+      - type: Authentication
+        url: https://docs.easypost.com/docs/authentication
+  - aid: easypost:tracking
+    name: EasyPost Tracking API
+    description: >-
+      Standalone Tracking API: create Trackers from a tracking code + carrier, receive webhooks on status
+      changes, query historical scan events. Standard Tracking and Advanced Tracking tiers are available
+      with different per-shipment pricing.
+    humanURL: https://docs.easypost.com/docs/trackers
+    baseURL: https://api.easypost.com/v2
+    tags:
+      - Tracking
+      - Webhooks
+    properties:
+      - type: Documentation
+        url: https://docs.easypost.com/docs/trackers
+  - aid: easypost:insurance-claims
+    name: EasyPost Insurance & Claims API
+    description: >-
+      Insurance API: insure shipments at 1% of declared value with a $1 minimum. Claims API: file and
+      manage damage/loss/theft claims via REST.
+    humanURL: https://docs.easypost.com/docs/insurance
+    baseURL: https://api.easypost.com/v2
+    tags:
+      - Insurance
+      - Claims
+    properties:
+      - type: Documentation
+        url: https://docs.easypost.com/docs/insurance
+  - aid: easypost:reports
+    name: EasyPost Reports API
+    description: >-
+      Generate Shipment, Tracker, Refund, Payment Log, and other reports asynchronously; download CSVs
+      from the URL returned in the report object.
+    humanURL: https://docs.easypost.com/docs/reports
+    baseURL: https://api.easypost.com/v2
+    tags:
+      - Reports
+      - Reconciliation
+    properties:
+      - type: Documentation
+        url: https://docs.easypost.com/docs/reports
 common:
   - type: Website
     url: https://www.easypost.com/
+  - type: DeveloperPortal
+    url: https://docs.easypost.com/
   - type: Plans
     url: plans/easypost-plans-pricing.yml
   - type: RateLimits

@@ -5,37 +5,135 @@ provider: EasyPost
 providerId: easypost
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Shipping
 - Logistics
 - Multi-Carrier
+- Tracking
 - Labels
-- API
+- Insurance
 - Plans
-description: Placeholder plans/pricing artifact for EasyPost. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  EasyPost offers a freemium model: free for up to 3,000 labels per month using EasyPost Wallet
+  carriers; $20/month plus per-label fees when using bring-your-own-carrier accounts; enterprise
+  pricing for high-volume shippers. Tracking is $0.01-$0.03 per shipment (Standard) or $0.03
+  (Advanced). Insurance is 1% of declared value with a $1 minimum. EasyPost Forge (logistics platform)
+  and GlobalShip require sales contact.
+notes: "Freemium: 3,000 free labels/month on Wallet carriers; metered pricing thereafter."
 sources:
-- https://www.easypost.com/
+- https://www.easypost.com/pricing
+- https://docs.easypost.com/
 plans:
-- id: easypost-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: easypost-free-wallet
+  name: Free (Wallet Carriers)
+  type: free
+  description: Up to 3,000 labels per month using EasyPost Wallet (EasyPost-managed carrier accounts).
   entries:
-  - label: API Access
-    name: api_access
+  - label: Labels (Wallet)
+    name: wallet_labels
     type: flat
-    metric: varies
+    metric: label
+    limit: 3000
+    timeFrame: monthly
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+  elements:
+  - name: 3,000 free labels/month
+  - name: Wallet carriers only
+- id: easypost-byoa
+  name: Bring Your Own Carrier Accounts (BYOA)
+  type: paid
+  description: $20/month platform fee plus per-label charges when using your own negotiated carrier accounts.
+  entries:
+  - label: Platform Fee
+    name: platform_fee
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: monthly
+    geo: global
+    unit: 1
+    price: 20 USD/month
+    userMultiplied: false
+  - label: Per-Label
+    name: per_label
+    type: flat
+    metric: label
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://www.easypost.com/
+    price: see https://www.easypost.com/pricing
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: Use negotiated carrier rates
+  - name: 100+ carriers
+- id: easypost-tracking
+  name: Tracking API
+  type: usage
+  description: "Per-shipment tracking pricing: $0.01-$0.03 (Standard) or $0.03 (Advanced)."
+  entries:
+  - label: Standard Tracking
+    name: tracking_standard
+    type: flat
+    metric: shipment
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.01-0.03 USD/shipment
+    userMultiplied: false
+  - label: Advanced Tracking
+    name: tracking_advanced
+    type: flat
+    metric: shipment
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.03 USD/shipment
+    userMultiplied: false
+  elements:
+  - name: Standard and Advanced tiers
+- id: easypost-insurance
+  name: Insurance API
+  type: usage
+  description: 1% of declared shipment value with a $1.00 minimum per insured shipment.
+  entries:
+  - label: Insurance
+    name: insurance
+    type: percentage
+    metric: shipment
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 1 percent of value, 1 USD minimum
+    userMultiplied: false
+  elements:
+  - name: 1 percent / 1 USD min
+- id: easypost-enterprise
+  name: Enterprise (Forge / GlobalShip / Volume)
+  type: enterprise
+  description: Custom pricing for high-volume shippers and the EasyPost Forge platform / GlobalShip product.
+  entries:
+  - label: Contract
+    name: contract
+    type: flat
+    metric: year
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Forge logistics platform
+  - name: GlobalShip
+  - name: Volume discounts
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

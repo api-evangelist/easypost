@@ -5,20 +5,27 @@ provider: EasyPost
 providerId: easypost
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Shipping
 - Logistics
 - Multi-Carrier
+- Tracking
 - Labels
-- API
+- Insurance
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for EasyPost. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps profile for EasyPost. Cost lines are: (1) platform/subscription fee for BYOA,
+  (2) per-label charges for non-Wallet carriers, (3) carrier postage cost for purchased rates (passed
+  through), (4) Tracking per-shipment, (5) Insurance 1% of value (min $1), and (6) any
+  Forge/GlobalShip subscription. Optimize by using EasyPost Wallet for low-volume / SMB workflows up
+  to 3,000 labels/month, batching label buys, and reducing tracker creation for already-delivered
+  shipments.
+notes: Multiple metered lines; postage is pass-through. Wallet free tier covers many SMB use cases.
 sources:
-- https://www.easypost.com/
+- https://www.easypost.com/pricing
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -27,15 +34,15 @@ alignedWith:
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 publisherName: EasyPost
-serviceCategory: Shipping
+serviceCategory: Shipping API
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription + Usage
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
+  - Subscription
   - Usage
   - Purchase
-  - Adjustment
 focusColumns:
   ServiceName: EasyPost
   ServiceCategory: Shipping
@@ -45,22 +52,42 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: labels_purchased
+  description: Shipping labels purchased (Wallet vs. BYOA).
+  unit: label
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - carrier
+  - service
+  - wallet_or_byoa
+- name: tracking_events
+  description: Tracker creations / scan events billed.
+  unit: shipment
+  aggregation: sum
+  dimensions:
+  - tier
+- name: insurance_charges
+  description: Insurance fees (1% of value, $1 min).
+  unit: USD
+  aggregation: sum
+  dimensions:
+  - service
+- name: postage_passthrough
+  description: Carrier postage cost passed through to the shipper.
+  unit: USD
+  aggregation: sum
+  dimensions:
+  - carrier
+  - service
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Pull EasyPost Reports API monthly; reconcile labels, tracking, insurance, and postage by carrier.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag shipments with order/customer ID for chargeback to the originating brand.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Use Wallet carriers under 3,000 labels/month; batch high-volume label creation; avoid duplicate Tracker creations.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Logistics/ops team owns EasyPost contract; engineering owns API-key hygiene.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
