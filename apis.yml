@@ -92,6 +92,10 @@ common:
     url: rate-limits/easypost-rate-limits.yml
   - type: FinOps
     url: finops/easypost-finops.yml
+  - type: Integrations
+    url: https://www.easypost.com/partners/
+integrations:
+  - name: EasyPost
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
