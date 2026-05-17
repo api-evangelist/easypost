@@ -1,7 +1,7 @@
 aid: easypost
 url: https://raw.githubusercontent.com/api-evangelist/easypost/refs/heads/main/apis.yml
 name: EasyPost
-x-type: company
+kind: company
 description: >-
   EasyPost is a multi-carrier shipping API platform for the United States and international markets.
   It exposes a REST API spanning shipments, rating, labels, tracking, addresses, parcels, insurance,
