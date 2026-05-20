@@ -82,6 +82,10 @@ apis:
       - type: Documentation
         url: https://docs.easypost.com/docs/reports
 common:
+  - type: GitHubOrganization
+    url: https://github.com/easypost
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/easypost
   - type: Website
     url: https://www.easypost.com/
   - type: DeveloperPortal
