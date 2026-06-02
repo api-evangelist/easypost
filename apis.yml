@@ -17,7 +17,7 @@ tags:
   - Labels
   - Insurance
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - aid: easypost:shipping
@@ -55,6 +55,30 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.easypost.com/docs/trackers
+  - aid: easypost:webhooks
+    name: EasyPost Webhooks API
+    description: >-
+      Asynchronous Event delivery surface. EasyPost POSTs Event objects to subscriber URLs whenever
+      asynchronous objects (batches, trackers, scan forms, refunds, reports, payments, claims,
+      insurance, shipment invoices) change state. Each delivery is signed with an HMAC-SHA256
+      signature in the X-Hmac-Signature header, derived from a per-webhook secret. Subscribers must
+      return a 2XX status code; non-2XX responses are retried.
+    humanURL: https://docs.easypost.com/docs/webhooks
+    baseURL: https://api.easypost.com/v2
+    tags:
+      - Webhooks
+      - Events
+      - AsyncAPI
+      - HMAC
+    properties:
+      - type: Documentation
+        url: https://docs.easypost.com/docs/webhooks
+      - type: Events
+        url: https://docs.easypost.com/docs/events
+      - type: Payloads
+        url: https://docs.easypost.com/docs/events/payloads
+      - type: AsyncAPI
+        url: asyncapi/easypost-webhooks-asyncapi.yml
   - aid: easypost:insurance-claims
     name: EasyPost Insurance & Claims API
     description: >-

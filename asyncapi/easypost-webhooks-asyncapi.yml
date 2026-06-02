@@ -1,0 +1,645 @@
+asyncapi: '2.6.0'
+info:
+  title: EasyPost Webhooks API
+  version: '1.0.0'
+  description: >-
+    AsyncAPI specification for EasyPost's webhook surface. EasyPost dispatches
+    Event objects to subscriber URLs whenever asynchronous objects (batches,
+    trackers, scan forms, refunds, reports, payments, claims, insurance, shipment
+    invoices) change state. Webhooks are configured on the EasyPost account and
+    are signed with an HMAC-SHA256 signature in the X-Hmac-Signature header,
+    derived from a webhook secret provided at webhook creation time.
+
+    Subscribers must respond with a 2XX status code (200 OK preferred) to
+    acknowledge receipt; non-2XX responses are retried.
+  contact:
+    name: EasyPost Support
+    url: https://docs.easypost.com/docs/webhooks
+  license:
+    name: Proprietary
+    url: https://www.easypost.com/terms
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{webhook_url}'
+    protocol: https
+    description: >-
+      Subscriber-controlled HTTPS endpoint registered with EasyPost. URL is
+      configured per-webhook in the EasyPost account. TLS is required, with a
+      certificate from a trusted public authority.
+    variables:
+      webhook_url:
+        description: Fully-qualified HTTPS URL of the subscriber endpoint.
+        default: https://example.com/webhooks/easypost
+
+channels:
+  webhook:
+    description: >-
+      Single delivery channel. EasyPost POSTs an Event payload to the
+      subscriber's configured webhook URL for every event type the account is
+      subscribed to. The specific event type is conveyed by the `description`
+      field of the Event payload.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveEasyPostEvent
+      summary: Receive an EasyPost Event
+      description: >-
+        EasyPost publishes an Event object to the subscriber URL. The Event's
+        `description` field carries the canonical event name (for example
+        `batch.created`, `tracker.updated`, `report.available`). Subscribers
+        must verify the X-Hmac-Signature header before trusting the payload.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/BatchCreated'
+          - $ref: '#/components/messages/BatchUpdated'
+          - $ref: '#/components/messages/TrackerCreated'
+          - $ref: '#/components/messages/TrackerUpdated'
+          - $ref: '#/components/messages/ScanFormCreated'
+          - $ref: '#/components/messages/ScanFormUpdated'
+          - $ref: '#/components/messages/RefundSuccessful'
+          - $ref: '#/components/messages/ReportNew'
+          - $ref: '#/components/messages/ReportEmpty'
+          - $ref: '#/components/messages/ReportAvailable'
+          - $ref: '#/components/messages/ReportFailed'
+          - $ref: '#/components/messages/PaymentCreated'
+          - $ref: '#/components/messages/PaymentCompleted'
+          - $ref: '#/components/messages/PaymentFailed'
+          - $ref: '#/components/messages/InsurancePurchased'
+          - $ref: '#/components/messages/InsuranceCancelled'
+          - $ref: '#/components/messages/ClaimsSubmitted'
+          - $ref: '#/components/messages/ClaimsCancelled'
+          - $ref: '#/components/messages/ClaimsUpdated'
+          - $ref: '#/components/messages/ClaimsRejected'
+          - $ref: '#/components/messages/ClaimsApproved'
+          - $ref: '#/components/messages/ShipmentInvoiceCreated'
+          - $ref: '#/components/messages/ShipmentInvoiceUpdated'
+
+components:
+  messages:
+    BatchCreated:
+      name: batch.created
+      title: Batch Created
+      summary: Initial batch object creation has completed.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: batch.created
+
+    BatchUpdated:
+      name: batch.updated
+      title: Batch Updated
+      summary: A batch's status has changed (e.g. label generation progress).
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: batch.updated
+
+    TrackerCreated:
+      name: tracker.created
+      title: Tracker Created
+      summary: A Tracker has been created for a tracking code.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: tracker.created
+
+    TrackerUpdated:
+      name: tracker.updated
+      title: Tracker Updated
+      summary: A Tracker's status or scan history has been updated.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: tracker.updated
+
+    ScanFormCreated:
+      name: scan_form.created
+      title: Scan Form Created
+      summary: A scan form (SCAN form/manifest) has been created.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: scan_form.created
+
+    ScanFormUpdated:
+      name: scan_form.updated
+      title: Scan Form Updated
+      summary: A scan form's status or contents have been updated.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: scan_form.updated
+
+    RefundSuccessful:
+      name: refund.successful
+      title: Refund Successful
+      summary: A refund request has completed successfully.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: refund.successful
+
+    ReportNew:
+      name: report.new
+      title: Report New
+      summary: A new report has been requested and is being generated.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: report.new
+
+    ReportEmpty:
+      name: report.empty
+      title: Report Empty
+      summary: Report generation finished but produced no rows.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: report.empty
+
+    ReportAvailable:
+      name: report.available
+      title: Report Available
+      summary: Report generation completed; CSV is downloadable from `url`.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: report.available
+
+    ReportFailed:
+      name: report.failed
+      title: Report Failed
+      summary: Report generation failed.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: report.failed
+
+    PaymentCreated:
+      name: payment.created
+      title: Payment Created
+      summary: A bank account or credit card has been charged.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: payment.created
+
+    PaymentCompleted:
+      name: payment.completed
+      title: Payment Completed
+      summary: A bank transfer has successfully completed.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: payment.completed
+
+    PaymentFailed:
+      name: payment.failed
+      title: Payment Failed
+      summary: A transfer or charge encountered an issue.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: payment.failed
+
+    InsurancePurchased:
+      name: insurance.purchased
+      title: Insurance Purchased
+      summary: An insurance policy has been purchased for a shipment.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: insurance.purchased
+
+    InsuranceCancelled:
+      name: insurance.cancelled
+      title: Insurance Cancelled
+      summary: An insurance policy has been cancelled.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: insurance.cancelled
+
+    ClaimsSubmitted:
+      name: claims.submitted
+      title: Claim Submitted
+      summary: A claim has been submitted to EasyPost for processing.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: claims.submitted
+
+    ClaimsCancelled:
+      name: claims.cancelled
+      title: Claim Cancelled
+      summary: A claim has been cancelled.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: claims.cancelled
+
+    ClaimsUpdated:
+      name: claims.updated
+      title: Claim Updated
+      summary: A claim's status or fields have been updated.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: claims.updated
+
+    ClaimsRejected:
+      name: claims.rejected
+      title: Claim Rejected
+      summary: A claim has been rejected.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: claims.rejected
+
+    ClaimsApproved:
+      name: claims.approved
+      title: Claim Approved
+      summary: A claim has been approved.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: claims.approved
+
+    ShipmentInvoiceCreated:
+      name: shipment.invoice.created
+      title: Shipment Invoice Created
+      summary: A shipment invoice has been created.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: shipment.invoice.created
+
+    ShipmentInvoiceUpdated:
+      name: shipment.invoice.updated
+      title: Shipment Invoice Updated
+      summary: A shipment invoice has been updated.
+      contentType: application/json
+      bindings:
+        http:
+          headers:
+            $ref: '#/components/schemas/WebhookHeaders'
+          bindingVersion: '0.3.0'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/Event'
+          - type: object
+            properties:
+              description:
+                const: shipment.invoice.updated
+
+  schemas:
+    WebhookHeaders:
+      type: object
+      description: >-
+        HTTP headers EasyPost sends with each webhook POST. The
+        `X-Hmac-Signature` header carries the HMAC-SHA256 signature computed
+        over the raw JSON request body using the webhook secret provided when
+        the webhook was created.
+      required:
+        - X-Hmac-Signature
+        - Content-Type
+      properties:
+        X-Hmac-Signature:
+          type: string
+          description: >-
+            HMAC-SHA256 signature of the raw request body, keyed with the
+            webhook secret. Subscribers MUST recompute the signature on the
+            received body and constant-time compare against this header before
+            trusting the payload.
+          example: 'hexdigest...'
+        Content-Type:
+          type: string
+          const: application/json
+        Authorization:
+          type: string
+          description: >-
+            Optional basic auth credentials if configured in the webhook URL.
+        User-Agent:
+          type: string
+          description: EasyPost webhook user agent.
+
+    Event:
+      type: object
+      description: >-
+        EasyPost Event object delivered to webhook subscribers. The same shape
+        is returned by the Events REST API, except `result` is populated when
+        delivered via webhook and omitted on direct API retrieval.
+      required:
+        - id
+        - object
+        - mode
+        - description
+        - status
+        - created_at
+        - updated_at
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the Event. Prefix `evt_`.
+          example: evt_1234567890abcdef
+        object:
+          type: string
+          description: Object type. Always `Event`.
+          const: Event
+        mode:
+          type: string
+          description: Whether the event was produced in test or production mode.
+          enum:
+            - test
+            - production
+        description:
+          type: string
+          description: >-
+            Canonical event name (e.g. `batch.created`, `tracker.updated`,
+            `report.available`).
+          enum:
+            - batch.created
+            - batch.updated
+            - tracker.created
+            - tracker.updated
+            - scan_form.created
+            - scan_form.updated
+            - refund.successful
+            - report.new
+            - report.empty
+            - report.available
+            - report.failed
+            - payment.created
+            - payment.completed
+            - payment.failed
+            - insurance.purchased
+            - insurance.cancelled
+            - claims.submitted
+            - claims.cancelled
+            - claims.updated
+            - claims.rejected
+            - claims.approved
+            - shipment.invoice.created
+            - shipment.invoice.updated
+        previous_attributes:
+          type: object
+          description: >-
+            Map of attribute names to their values prior to the change that
+            triggered the event. Useful for diffing state transitions.
+          additionalProperties: true
+          example:
+            state: purchasing
+        result:
+          type: object
+          description: >-
+            The associated object at its post-update state (e.g. the Batch,
+            Tracker, ScanForm, Refund, Report, Payment, Insurance, Claim, or
+            ShipmentInvoice). Present in webhook deliveries, omitted on direct
+            API retrieval of the Event.
+          additionalProperties: true
+        status:
+          type: string
+          description: Delivery status of the event.
+          enum:
+            - completed
+            - failed
+            - in_queue
+            - retrying
+        pending_urls:
+          type: array
+          description: Webhook URLs that have not yet been successfully notified.
+          items:
+            type: string
+            format: uri
+        completed_urls:
+          type: array
+          description: Webhook URLs that have been successfully notified.
+          items:
+            type: string
+            format: uri
+        user_id:
+          type: string
+          description: Identifier of the user/account that owns the event.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the Event was created.
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the Event was last updated.
+
+  securitySchemes:
+    hmacSignature:
+      type: symmetricEncryption
+      description: >-
+        HMAC-SHA256 signature delivered in the `X-Hmac-Signature` HTTP header.
+        The signature is computed over the raw JSON request body using the
+        webhook secret provided when the webhook was created. Subscribers MUST
+        validate the signature using a constant-time comparison before
+        trusting the payload. Official EasyPost client libraries expose a
+        `validate_webhook()` helper.
