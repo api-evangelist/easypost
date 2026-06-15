@@ -1,0 +1,1514 @@
+{
+  "item": [
+    {
+      "id": "b05d05b3-04d5-4674-a87f-47af9082f21d",
+      "name": "Create a shipment",
+      "request": {
+        "name": "Create a shipment",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"shipment\": {\n    \"to_address\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"from_address\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"company\": \"<string>\",\n      \"street1\": \"<string>\",\n      \"street2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\",\n      \"country\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"email\": \"<string>\"\n    },\n    \"parcel\": {\n      \"id\": \"<string>\",\n      \"length\": \"<number>\",\n      \"width\": \"<number>\",\n      \"height\": \"<number>\",\n      \"weight\": \"<number>\",\n      \"predefined_package\": \"<string>\"\n    },\n    \"carrier_accounts\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "0fc1070f-def3-4182-a300-7c6bd2bd34ad",
+          "name": "Shipment created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment\": {\n    \"to_address\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"from_address\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"parcel\": {\n      \"id\": \"string\",\n      \"length\": 1798.4881498518469,\n      \"width\": 5108.7242007017285,\n      \"height\": 3149.42962315238,\n      \"weight\": 3503.3365507179415,\n      \"predefined_package\": \"string\"\n    },\n    \"carrier_accounts\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"to_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"from_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 8361.697687650641,\n    \"width\": 4928.3199571304785,\n    \"height\": 7095.896749539965,\n    \"weight\": 7853.953360026089,\n    \"predefined_package\": \"string\"\n  },\n  \"rates\": [\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 7933\n    },\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 3899\n    }\n  ],\n  \"selected_rate\": {\n    \"id\": \"string\",\n    \"service\": \"string\",\n    \"carrier\": \"string\",\n    \"rate\": \"string\",\n    \"currency\": \"string\",\n    \"delivery_days\": 8309\n  },\n  \"tracking_code\": \"string\",\n  \"postage_label\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "cd236e0b-c63c-4a28-b05a-10a944d18442",
+          "name": "Invalid API key",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"shipment\": {\n    \"to_address\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"from_address\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    \"parcel\": {\n      \"id\": \"string\",\n      \"length\": 1798.4881498518469,\n      \"width\": 5108.7242007017285,\n      \"height\": 3149.42962315238,\n      \"weight\": 3503.3365507179415,\n      \"predefined_package\": \"string\"\n    },\n    \"carrier_accounts\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b4a597d7-4309-4ce0-95bf-0f1925eb62fe",
+      "name": "List shipments",
+      "request": {
+        "name": "List shipments",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "page_size",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "before_id",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "after_id",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "bb8846a5-5e37-456d-89df-31bade9b43f7",
+          "name": "A page of shipments",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "page_size",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "before_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "after_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"shipments\": [\n    {\n      \"id\": \"string\",\n      \"to_address\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"string\"\n      },\n      \"from_address\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"string\"\n      },\n      \"parcel\": {\n        \"id\": \"string\",\n        \"length\": 1139.6763308750258,\n        \"width\": 2632.9369433483575,\n        \"height\": 9778.118279365619,\n        \"weight\": 816.5377135140106,\n        \"predefined_package\": \"string\"\n      },\n      \"rates\": [\n        {\n          \"id\": \"string\",\n          \"service\": \"string\",\n          \"carrier\": \"string\",\n          \"rate\": \"string\",\n          \"currency\": \"string\",\n          \"delivery_days\": 7816\n        },\n        {\n          \"id\": \"string\",\n          \"service\": \"string\",\n          \"carrier\": \"string\",\n          \"rate\": \"string\",\n          \"currency\": \"string\",\n          \"delivery_days\": 8194\n        }\n      ],\n      \"selected_rate\": {\n        \"id\": \"string\",\n        \"service\": \"string\",\n        \"carrier\": \"string\",\n        \"rate\": \"string\",\n        \"currency\": \"string\",\n        \"delivery_days\": 2767\n      },\n      \"tracking_code\": \"string\",\n      \"postage_label\": {\n        \"key_0\": 5326.322871578147,\n        \"key_1\": 8784.316454037235\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"to_address\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"string\"\n      },\n      \"from_address\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street1\": \"string\",\n        \"street2\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip\": \"string\",\n        \"country\": \"string\",\n        \"phone\": \"string\",\n        \"email\": \"string\"\n      },\n      \"parcel\": {\n        \"id\": \"string\",\n        \"length\": 3677.4782409665418,\n        \"width\": 7382.192546948302,\n        \"height\": 8529.407883473585,\n        \"weight\": 9010.924490083704,\n        \"predefined_package\": \"string\"\n      },\n      \"rates\": [\n        {\n          \"id\": \"string\",\n          \"service\": \"string\",\n          \"carrier\": \"string\",\n          \"rate\": \"string\",\n          \"currency\": \"string\",\n          \"delivery_days\": 9693\n        },\n        {\n          \"id\": \"string\",\n          \"service\": \"string\",\n          \"carrier\": \"string\",\n          \"rate\": \"string\",\n          \"currency\": \"string\",\n          \"delivery_days\": 7613\n        }\n      ],\n      \"selected_rate\": {\n        \"id\": \"string\",\n        \"service\": \"string\",\n        \"carrier\": \"string\",\n        \"rate\": \"string\",\n        \"currency\": \"string\",\n        \"delivery_days\": 5370\n      },\n      \"tracking_code\": \"string\",\n      \"postage_label\": {\n        \"key_0\": 9366\n      }\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a8345e09-a1e8-4d3d-bde0-cb4ed933cfa2",
+      "name": "Retrieve a shipment",
+      "request": {
+        "name": "Retrieve a shipment",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "de7a1aca-3d77-4c9b-9297-399207d60b88",
+          "name": "Shipment",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"to_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"from_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 8361.697687650641,\n    \"width\": 4928.3199571304785,\n    \"height\": 7095.896749539965,\n    \"weight\": 7853.953360026089,\n    \"predefined_package\": \"string\"\n  },\n  \"rates\": [\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 7933\n    },\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 3899\n    }\n  ],\n  \"selected_rate\": {\n    \"id\": \"string\",\n    \"service\": \"string\",\n    \"carrier\": \"string\",\n    \"rate\": \"string\",\n    \"currency\": \"string\",\n    \"delivery_days\": 8309\n  },\n  \"tracking_code\": \"string\",\n  \"postage_label\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cc185028-d951-44e1-b7fe-1c8d2dd47267",
+      "name": "Buy a shipment",
+      "request": {
+        "name": "Buy a shipment",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments",
+            ":id",
+            "buy"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rate\": {\n    \"id\": \"<string>\"\n  },\n  \"insurance\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "0ea5f934-f792-43ee-9b6a-c3d9718d42e8",
+          "name": "Purchased shipment with label",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments",
+                ":id",
+                "buy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rate\": {\n    \"id\": \"<string>\"\n  },\n  \"insurance\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"to_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"from_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 8361.697687650641,\n    \"width\": 4928.3199571304785,\n    \"height\": 7095.896749539965,\n    \"weight\": 7853.953360026089,\n    \"predefined_package\": \"string\"\n  },\n  \"rates\": [\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 7933\n    },\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 3899\n    }\n  ],\n  \"selected_rate\": {\n    \"id\": \"string\",\n    \"service\": \"string\",\n    \"carrier\": \"string\",\n    \"rate\": \"string\",\n    \"currency\": \"string\",\n    \"delivery_days\": 8309\n  },\n  \"tracking_code\": \"string\",\n  \"postage_label\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ac020498-7865-45a5-b0f0-17f9196360ad",
+      "name": "Convert a shipment label format",
+      "request": {
+        "name": "Convert a shipment label format",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments",
+            ":id",
+            "label"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "file_format",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6b4c7b2e-ec15-4f10-b945-2a8b132c7c46",
+          "name": "Label conversion result",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments",
+                ":id",
+                "label"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "file_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"to_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"from_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 8361.697687650641,\n    \"width\": 4928.3199571304785,\n    \"height\": 7095.896749539965,\n    \"weight\": 7853.953360026089,\n    \"predefined_package\": \"string\"\n  },\n  \"rates\": [\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 7933\n    },\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 3899\n    }\n  ],\n  \"selected_rate\": {\n    \"id\": \"string\",\n    \"service\": \"string\",\n    \"carrier\": \"string\",\n    \"rate\": \"string\",\n    \"currency\": \"string\",\n    \"delivery_days\": 8309\n  },\n  \"tracking_code\": \"string\",\n  \"postage_label\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a54c1e76-6884-46b5-bffe-51a724e20212",
+      "name": "Refund a shipment label",
+      "request": {
+        "name": "Refund a shipment label",
+        "description": {},
+        "url": {
+          "path": [
+            "shipments",
+            ":id",
+            "refund"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "bb3700ba-4568-4ace-9427-dab6c9d9136c",
+          "name": "Refund requested",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "shipments",
+                ":id",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"to_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"from_address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  },\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 8361.697687650641,\n    \"width\": 4928.3199571304785,\n    \"height\": 7095.896749539965,\n    \"weight\": 7853.953360026089,\n    \"predefined_package\": \"string\"\n  },\n  \"rates\": [\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 7933\n    },\n    {\n      \"id\": \"string\",\n      \"service\": \"string\",\n      \"carrier\": \"string\",\n      \"rate\": \"string\",\n      \"currency\": \"string\",\n      \"delivery_days\": 3899\n    }\n  ],\n  \"selected_rate\": {\n    \"id\": \"string\",\n    \"service\": \"string\",\n    \"carrier\": \"string\",\n    \"rate\": \"string\",\n    \"currency\": \"string\",\n    \"delivery_days\": 8309\n  },\n  \"tracking_code\": \"string\",\n  \"postage_label\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "62ea65c9-b4cb-42af-9d5d-f4da409aaa88",
+      "name": "Create an address",
+      "request": {
+        "name": "Create an address",
+        "description": {},
+        "url": {
+          "path": [
+            "addresses"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"address\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"company\": \"<string>\",\n    \"street1\": \"<string>\",\n    \"street2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "0b84fe48-89cb-48f5-ab1f-c40bda283e96",
+          "name": "Address created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street1\": \"string\",\n    \"street2\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip\": \"string\",\n    \"country\": \"string\",\n    \"phone\": \"string\",\n    \"email\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"company\": \"string\",\n  \"street1\": \"string\",\n  \"street2\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"zip\": \"string\",\n  \"country\": \"string\",\n  \"phone\": \"string\",\n  \"email\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "44c08ae6-6baf-4126-a5e4-51b4d23b8090",
+      "name": "List addresses",
+      "request": {
+        "name": "List addresses",
+        "description": {},
+        "url": {
+          "path": [
+            "addresses"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3c5965b4-7c71-4a6d-b46b-3cdda40aaf6c",
+          "name": "Addresses",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"addresses\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"company\": \"string\",\n      \"street1\": \"string\",\n      \"street2\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"zip\": \"string\",\n      \"country\": \"string\",\n      \"phone\": \"string\",\n      \"email\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "03781f8b-75c2-4306-b09b-8ffe01eb9a84",
+      "name": "Retrieve an address",
+      "request": {
+        "name": "Retrieve an address",
+        "description": {},
+        "url": {
+          "path": [
+            "addresses",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0921d157-50d7-4fa1-8453-ae86ff639263",
+          "name": "Address",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "addresses",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"company\": \"string\",\n  \"street1\": \"string\",\n  \"street2\": \"string\",\n  \"city\": \"string\",\n  \"state\": \"string\",\n  \"zip\": \"string\",\n  \"country\": \"string\",\n  \"phone\": \"string\",\n  \"email\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5b50d589-12ba-4c89-aab7-2fec50719429",
+      "name": "Create a parcel",
+      "request": {
+        "name": "Create a parcel",
+        "description": {},
+        "url": {
+          "path": [
+            "parcels"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"parcel\": {\n    \"id\": \"<string>\",\n    \"length\": \"<number>\",\n    \"width\": \"<number>\",\n    \"height\": \"<number>\",\n    \"weight\": \"<number>\",\n    \"predefined_package\": \"<string>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "c918ee38-6c89-451b-86d2-042ae492ab8b",
+          "name": "Parcel created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "parcels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parcel\": {\n    \"id\": \"string\",\n    \"length\": 3733.7912224859515,\n    \"width\": 1578.7291444225505,\n    \"height\": 9686.412269019454,\n    \"weight\": 510.4574338716805,\n    \"predefined_package\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"length\": 1049.5670621366526,\n  \"width\": 2331.3420732621657,\n  \"height\": 2043.0792187258874,\n  \"weight\": 4296.00073402088,\n  \"predefined_package\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "96ed2ece-1f27-43fc-b442-f6ba1de8bc26",
+      "name": "Create a tracker",
+      "request": {
+        "name": "Create a tracker",
+        "description": {},
+        "url": {
+          "path": [
+            "trackers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tracker\": {\n    \"tracking_code\": \"<string>\",\n    \"carrier\": \"<string>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "adf16cf9-4fa7-4fdf-af10-d5c7683513e2",
+          "name": "Tracker created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "trackers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tracker\": {\n    \"tracking_code\": \"<string>\",\n    \"carrier\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"tracking_code\": \"string\",\n  \"status\": \"string\",\n  \"carrier\": \"string\",\n  \"tracking_details\": [\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1f277cae-bde0-46a2-8c78-9dfae8884316",
+      "name": "List trackers",
+      "request": {
+        "name": "List trackers",
+        "description": {},
+        "url": {
+          "path": [
+            "trackers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7374c6ae-7ad8-46fd-85fd-d291671cd340",
+          "name": "Trackers",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "trackers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"trackers\": [\n    {\n      \"id\": \"string\",\n      \"tracking_code\": \"string\",\n      \"status\": \"string\",\n      \"carrier\": \"string\",\n      \"tracking_details\": [\n        {\n          \"key_0\": true,\n          \"key_1\": 9316.748421996577\n        },\n        {\n          \"key_0\": 8412.790397382256,\n          \"key_1\": 1837.2536458245536,\n          \"key_2\": 4757.048323491835,\n          \"key_3\": 4341,\n          \"key_4\": 9610\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"tracking_code\": \"string\",\n      \"status\": \"string\",\n      \"carrier\": \"string\",\n      \"tracking_details\": [\n        {\n          \"key_0\": 9041.832161011267,\n          \"key_1\": 1191\n        },\n        {\n          \"key_0\": 5359,\n          \"key_1\": 5546,\n          \"key_2\": true\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "04ccbe71-2e10-4ed1-9340-796b25738d59",
+      "name": "Retrieve a tracker",
+      "request": {
+        "name": "Retrieve a tracker",
+        "description": {},
+        "url": {
+          "path": [
+            "trackers",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b635a2f9-f55c-414c-893b-2632ca6b95f0",
+          "name": "Tracker",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "trackers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"tracking_code\": \"string\",\n  \"status\": \"string\",\n  \"carrier\": \"string\",\n  \"tracking_details\": [\n    {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e699469c-2934-47f4-a33f-4141e522331e",
+      "name": "Create a refund",
+      "request": {
+        "name": "Create a refund",
+        "description": {},
+        "url": {
+          "path": [
+            "refunds"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"refund\": {\n    \"carrier\": \"<string>\",\n    \"tracking_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "66c90a15-bd71-49d5-985d-0ada1480a0f7",
+          "name": "Refund created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refund\": {\n    \"carrier\": \"<string>\",\n    \"tracking_codes\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e393b28a-59cb-4cdf-aa40-ee9c6d3be8ee",
+      "name": "Create a report",
+      "request": {
+        "name": "Create a report",
+        "description": {},
+        "url": {
+          "path": [
+            "reports",
+            ":type"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "type",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "340f557b-0db1-4e88-872e-9a3bed5ecd5b",
+          "name": "Report queued",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "reports",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.easypost.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "63694cf8-1ea0-4b2e-9d14-f0596eaa9485",
+    "name": "EasyPost Shipping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the EasyPost multi-carrier shipping platform. Covers\nshipments, rates, addresses, parcels, trackers, refunds and reports.\nAuthentication is HTTP Basic with the API key as username and an empty\npassword. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: EasyPost",
+      "type": "text/plain"
+    }
+  }
+}
