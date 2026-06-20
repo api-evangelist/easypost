@@ -8,7 +8,7 @@ description: >-
   claims, pickups, scan forms, refunds, batches, end-shippers, reports, customs info, carrier
   accounts, and webhooks. EasyPost integrates 100+ carriers including USPS, UPS, FedEx, DHL, Canada
   Post, and Royal Mail.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Shipping
   - Logistics
