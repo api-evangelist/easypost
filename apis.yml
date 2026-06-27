@@ -122,7 +122,7 @@ common:
     url: finops/easypost-finops.yml
   - type: Integrations
     url: https://www.easypost.com/partners/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.easypost.com/llms.txt
 integrations:
   - name: EasyPost
