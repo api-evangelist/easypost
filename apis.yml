@@ -106,6 +106,12 @@ apis:
       - type: Documentation
         url: https://docs.easypost.com/docs/reports
 common:
+  - type: TrustCenter
+    url: security/easypost-trust-center.yml
+  - type: DomainSecurity
+    url: security/easypost-domain-security.yml
+  - type: Authentication
+    url: authentication/easypost-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/easypost
   - type: LinkedIn
@@ -124,6 +130,8 @@ common:
     url: https://www.easypost.com/partners/
   - type: LlmsText
     url: https://docs.easypost.com/llms.txt
+  - type: Blog
+    url: https://www.easypost.com/feed/
 integrations:
   - name: EasyPost
 maintainers:

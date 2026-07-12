@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/easypost-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: EasyPostBasic
+  type: http
+  scheme: basic
+  description: HTTP Basic where username is your EasyPost API key and password is empty.
+  sources:
+  - openapi/easypost-openapi.yml
