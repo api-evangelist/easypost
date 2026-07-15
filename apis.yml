@@ -106,6 +106,8 @@ apis:
       - type: Documentation
         url: https://docs.easypost.com/docs/reports
 common:
+  - type: AgenticAccess
+    url: agentic-access/easypost-agentic-access.yml
   - type: TrustCenter
     url: security/easypost-trust-center.yml
   - type: DomainSecurity
