@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: EasyPost Shipping Addresses API
+  description: 'REST API for the EasyPost multi-carrier shipping platform. Covers
+
+    shipments, rates, addresses, parcels, trackers, refunds and reports.
+
+    Authentication is HTTP Basic with the API key as username and an empty
+
+    password. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2.0.0
+  contact:
+    name: EasyPost
+    url: https://docs.easypost.com/
+servers:
+- url: https://api.easypost.com/v2
+  description: Production
+security:
+- EasyPostBasic: []
+tags:
+- name: Addresses
+paths:
+  /addresses:
+    post:
+      summary: Create an address
+      operationId: createAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address:
+                  $ref: '#/components/schemas/Address'
+      responses:
+        '201':
+          description: Address created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      tags:
+      - Addresses
+    get:
+      summary: List addresses
+      operationId: listAddresses
+      responses:
+        '200':
+          description: Addresses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  addresses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Address'
+      tags:
+      - Addresses
+  /addresses/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Retrieve an address
+      operationId: getAddress
+      responses:
+        '200':
+          description: Address
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+      tags:
+      - Addresses
+components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+  securitySchemes:
+    EasyPostBasic:
+      type: http
+      scheme: basic
+      description: HTTP Basic where username is your EasyPost API key and password is empty.

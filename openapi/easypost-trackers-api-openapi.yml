@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: EasyPost Shipping Addresses Trackers API
+  description: 'REST API for the EasyPost multi-carrier shipping platform. Covers
+
+    shipments, rates, addresses, parcels, trackers, refunds and reports.
+
+    Authentication is HTTP Basic with the API key as username and an empty
+
+    password. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2.0.0
+  contact:
+    name: EasyPost
+    url: https://docs.easypost.com/
+servers:
+- url: https://api.easypost.com/v2
+  description: Production
+security:
+- EasyPostBasic: []
+tags:
+- name: Trackers
+paths:
+  /trackers:
+    post:
+      summary: Create a tracker
+      operationId: createTracker
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tracker:
+                  type: object
+                  properties:
+                    tracking_code:
+                      type: string
+                    carrier:
+                      type: string
+      responses:
+        '201':
+          description: Tracker created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tracker'
+      tags:
+      - Trackers
+    get:
+      summary: List trackers
+      operationId: listTrackers
+      responses:
+        '200':
+          description: Trackers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trackers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tracker'
+      tags:
+      - Trackers
+  /trackers/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Retrieve a tracker
+      operationId: getTracker
+      responses:
+        '200':
+          description: Tracker
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tracker'
+      tags:
+      - Trackers
+components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  schemas:
+    Tracker:
+      type: object
+      properties:
+        id:
+          type: string
+        tracking_code:
+          type: string
+        status:
+          type: string
+        carrier:
+          type: string
+        tracking_details:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    EasyPostBasic:
+      type: http
+      scheme: basic
+      description: HTTP Basic where username is your EasyPost API key and password is empty.

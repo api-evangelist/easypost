@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: EasyPost Shipping Addresses Parcels API
+  description: 'REST API for the EasyPost multi-carrier shipping platform. Covers
+
+    shipments, rates, addresses, parcels, trackers, refunds and reports.
+
+    Authentication is HTTP Basic with the API key as username and an empty
+
+    password. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2.0.0
+  contact:
+    name: EasyPost
+    url: https://docs.easypost.com/
+servers:
+- url: https://api.easypost.com/v2
+  description: Production
+security:
+- EasyPostBasic: []
+tags:
+- name: Parcels
+paths:
+  /parcels:
+    post:
+      summary: Create a parcel
+      operationId: createParcel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parcel:
+                  $ref: '#/components/schemas/Parcel'
+      responses:
+        '201':
+          description: Parcel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Parcel'
+      tags:
+      - Parcels
+components:
+  schemas:
+    Parcel:
+      type: object
+      properties:
+        id:
+          type: string
+        length:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        weight:
+          type: number
+        predefined_package:
+          type: string
+  securitySchemes:
+    EasyPostBasic:
+      type: http
+      scheme: basic
+      description: HTTP Basic where username is your EasyPost API key and password is empty.

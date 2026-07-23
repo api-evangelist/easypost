@@ -1,0 +1,285 @@
+openapi: 3.1.0
+info:
+  title: EasyPost Shipping Addresses Shipments API
+  description: 'REST API for the EasyPost multi-carrier shipping platform. Covers
+
+    shipments, rates, addresses, parcels, trackers, refunds and reports.
+
+    Authentication is HTTP Basic with the API key as username and an empty
+
+    password. This specification is a best-effort, documentation-derived
+
+    description and may omit fields.
+
+    '
+  version: 2.0.0
+  contact:
+    name: EasyPost
+    url: https://docs.easypost.com/
+servers:
+- url: https://api.easypost.com/v2
+  description: Production
+security:
+- EasyPostBasic: []
+tags:
+- name: Shipments
+paths:
+  /shipments:
+    post:
+      summary: Create a shipment
+      operationId: createShipment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shipment:
+                  $ref: '#/components/schemas/ShipmentInput'
+      responses:
+        '201':
+          description: Shipment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      tags:
+      - Shipments
+    get:
+      summary: List shipments
+      operationId: listShipments
+      parameters:
+      - in: query
+        name: page_size
+        schema:
+          type: integer
+      - in: query
+        name: before_id
+        schema:
+          type: string
+      - in: query
+        name: after_id
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A page of shipments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+  /shipments/{id}:
+    parameters:
+    - $ref: '#/components/parameters/IdPath'
+    get:
+      summary: Retrieve a shipment
+      operationId: getShipment
+      responses:
+        '200':
+          description: Shipment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+  /shipments/{id}/buy:
+    post:
+      summary: Buy a shipment
+      operationId: buyShipment
+      parameters:
+      - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rate:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                insurance:
+                  type: string
+      responses:
+        '200':
+          description: Purchased shipment with label
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+  /shipments/{id}/label:
+    get:
+      summary: Convert a shipment label format
+      operationId: convertShipmentLabel
+      parameters:
+      - $ref: '#/components/parameters/IdPath'
+      - in: query
+        name: file_format
+        required: true
+        schema:
+          type: string
+          enum:
+          - pdf
+          - zpl
+          - epl2
+          - png
+      responses:
+        '200':
+          description: Label conversion result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+  /shipments/{id}/refund:
+    post:
+      summary: Refund a shipment label
+      operationId: refundShipment
+      parameters:
+      - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Refund requested
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shipment'
+      tags:
+      - Shipments
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+    Rate:
+      type: object
+      properties:
+        id:
+          type: string
+        service:
+          type: string
+        carrier:
+          type: string
+        rate:
+          type: string
+        currency:
+          type: string
+        delivery_days:
+          type: integer
+    Parcel:
+      type: object
+      properties:
+        id:
+          type: string
+        length:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        weight:
+          type: number
+        predefined_package:
+          type: string
+    Shipment:
+      type: object
+      properties:
+        id:
+          type: string
+        to_address:
+          $ref: '#/components/schemas/Address'
+        from_address:
+          $ref: '#/components/schemas/Address'
+        parcel:
+          $ref: '#/components/schemas/Parcel'
+        rates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rate'
+        selected_rate:
+          $ref: '#/components/schemas/Rate'
+        tracking_code:
+          type: string
+        postage_label:
+          type: object
+          additionalProperties: true
+    ShipmentInput:
+      type: object
+      properties:
+        to_address:
+          $ref: '#/components/schemas/Address'
+        from_address:
+          $ref: '#/components/schemas/Address'
+        parcel:
+          $ref: '#/components/schemas/Parcel'
+        carrier_accounts:
+          type: array
+          items:
+            type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+  responses:
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    EasyPostBasic:
+      type: http
+      scheme: basic
+      description: HTTP Basic where username is your EasyPost API key and password is empty.
