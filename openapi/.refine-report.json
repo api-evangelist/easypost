@@ -1,0 +1,24 @@
+{
+  "provider": "easypost",
+  "sources": [
+    "easypost-addresses-api-openapi.yml",
+    "easypost-parcels-api-openapi.yml",
+    "easypost-refunds-api-openapi.yml",
+    "easypost-reports-api-openapi.yml",
+    "easypost-shipments-api-openapi.yml",
+    "easypost-trackers-api-openapi.yml"
+  ],
+  "outputs": [
+    "easypost-addresses-api-openapi.yml",
+    "easypost-parcels-api-openapi.yml",
+    "easypost-refunds-api-openapi.yml",
+    "easypost-reports-api-openapi.yml",
+    "easypost-shipments-api-openapi.yml",
+    "easypost-trackers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
