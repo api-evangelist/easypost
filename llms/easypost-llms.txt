@@ -1,0 +1,30 @@
+# EasyPost Developer Docs
+
+EasyPost provides APIs for shipping, tracking, insurance, carrier integrations, and logistics automation.
+
+Primary documentation
+https://docs.easypost.com
+
+Core API documentation
+https://docs.easypost.com/docs
+
+Getting started
+https://docs.easypost.com/guides/getting-started
+
+Key API topics
+https://docs.easypost.com/docs/authentication
+https://docs.easypost.com/docs/shipments
+https://docs.easypost.com/docs/trackers
+https://docs.easypost.com/docs/webhooks
+https://docs.easypost.com/docs/errors
+
+Key guides
+https://docs.easypost.com/guides/webhooks-guide
+https://docs.easypost.com/guides/tracking-guide
+https://docs.easypost.com/guides/rate-limiting-guide
+https://docs.easypost.com/guides/smartrate-guide
+https://docs.easypost.com/guides/luma-guide
+https://docs.easypost.com/guides/forge-overview
+
+Carrier integrations
+https://docs.easypost.com/carriers

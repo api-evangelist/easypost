@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EasyPost Shipping Addresses Parcels API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parcels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a parcel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easypost.com/v2/parcels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a parcel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

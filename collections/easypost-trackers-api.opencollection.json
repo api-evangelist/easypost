@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EasyPost Shipping Addresses Trackers API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trackers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List trackers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easypost.com/v2/trackers"
+          },
+          "docs": "List trackers"
+        },
+        {
+          "info": {
+            "name": "Create a tracker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easypost.com/v2/trackers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a tracker"
+        },
+        {
+          "info": {
+            "name": "Retrieve a tracker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easypost.com/v2/trackers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a tracker"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

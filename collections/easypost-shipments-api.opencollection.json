@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EasyPost Shipping Addresses Shipments API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List shipments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easypost.com/v2/shipments",
+            "params": [
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "before_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "after_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List shipments"
+        },
+        {
+          "info": {
+            "name": "Create a shipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easypost.com/v2/shipments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a shipment"
+        },
+        {
+          "info": {
+            "name": "Retrieve a shipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easypost.com/v2/shipments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a shipment"
+        },
+        {
+          "info": {
+            "name": "Buy a shipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easypost.com/v2/shipments/:id/buy",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Buy a shipment"
+        },
+        {
+          "info": {
+            "name": "Convert a shipment label format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.easypost.com/v2/shipments/:id/label",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "file_format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Convert a shipment label format"
+        },
+        {
+          "info": {
+            "name": "Refund a shipment label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.easypost.com/v2/shipments/:id/refund",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Refund a shipment label"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

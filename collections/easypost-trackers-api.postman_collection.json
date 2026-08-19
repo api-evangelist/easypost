@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "48c051da-ff32-4792-940f-ab7d6b8ac859",
+      "name": "Trackers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64c4f8f8-9317-40cc-8e20-c27c95a2c972",
+          "name": "Create a tracker",
+          "request": {
+            "name": "Create a tracker",
+            "description": {},
+            "url": {
+              "path": [
+                "trackers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tracker\": {\n    \"tracking_code\": \"<string>\",\n    \"carrier\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "44a358e4-7a51-41c2-a75b-69590b835b09",
+              "name": "Tracker created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trackers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tracker\": {\n    \"tracking_code\": \"<string>\",\n    \"carrier\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"tracking_code\": \"string\",\n  \"status\": \"string\",\n  \"carrier\": \"string\",\n  \"tracking_details\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 6532\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": 1782.9466803391347,\n      \"key_2\": 7553.824725723634,\n      \"key_3\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "931d7f6e-85d2-41ad-98c4-114a5fda3ebe",
+          "name": "List trackers",
+          "request": {
+            "name": "List trackers",
+            "description": {},
+            "url": {
+              "path": [
+                "trackers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb0f5a6a-e8dd-4066-aaee-85bfd41638de",
+              "name": "Trackers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trackers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"trackers\": [\n    {\n      \"id\": \"string\",\n      \"tracking_code\": \"string\",\n      \"status\": \"string\",\n      \"carrier\": \"string\",\n      \"tracking_details\": [\n        {\n          \"key_0\": true,\n          \"key_1\": 9216.802108364123\n        },\n        {\n          \"key_0\": 134,\n          \"key_1\": 9431,\n          \"key_2\": true\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"tracking_code\": \"string\",\n      \"status\": \"string\",\n      \"carrier\": \"string\",\n      \"tracking_details\": [\n        {\n          \"key_0\": 913,\n          \"key_1\": false,\n          \"key_2\": 8029,\n          \"key_3\": 348\n        },\n        {\n          \"key_0\": false,\n          \"key_1\": 8440\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f1ab7ee-5b05-4121-a0b9-12c8af2e7263",
+          "name": "Retrieve a tracker",
+          "request": {
+            "name": "Retrieve a tracker",
+            "description": {},
+            "url": {
+              "path": [
+                "trackers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96da1c44-5fea-4ac5-824e-361f01f2c7f9",
+              "name": "Tracker",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trackers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"tracking_code\": \"string\",\n  \"status\": \"string\",\n  \"carrier\": \"string\",\n  \"tracking_details\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": 6532\n    },\n    {\n      \"key_0\": false,\n      \"key_1\": 1782.9466803391347,\n      \"key_2\": 7553.824725723634,\n      \"key_3\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.easypost.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "02ad201e-2fd8-4801-b313-04c504aa8df7",
+    "name": "EasyPost Shipping Addresses Trackers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for the EasyPost multi-carrier shipping platform. Covers\nshipments, rates, addresses, parcels, trackers, refunds and reports.\nAuthentication is HTTP Basic with the API key as username and an empty\npassword. This specification is a best-effort, documentation-derived\ndescription and may omit fields.\n\n\nContact Support:\n Name: EasyPost",
+      "type": "text/plain"
+    }
+  }
+}
