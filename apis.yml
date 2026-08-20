@@ -64,6 +64,9 @@ apis:
   baseURL: https://api.easypost.com/v2
   tags:
   - Tracking
+  - Webhook
+  tags_raw:
+  - Tracking
   - Webhooks
   properties:
   - type: Documentation
@@ -79,6 +82,11 @@ apis:
   humanURL: https://docs.easypost.com/docs/webhooks
   baseURL: https://api.easypost.com/v2
   tags:
+  - Webhook
+  - Event
+  - AsyncAPI
+  - HMAC
+  tags_raw:
   - Webhooks
   - Events
   - AsyncAPI
