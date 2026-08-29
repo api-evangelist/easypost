@@ -199,6 +199,9 @@ apis:
   - type: OpenAPI
     url: openapi/easypost-trackers-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/easypost-capability-edges.yml
+    name: EasyPost Business Capability Map
   - type: AgenticAccess
     url: agentic-access/easypost-agentic-access.yml
   - type: TrustCenter
