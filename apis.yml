@@ -155,6 +155,8 @@ apis:
   humanURL: https://docs.easypost.com/docs/shipments
   baseURL: https://api.easypost.com/v2
   tags:
+  - Parcel
+  tags_raw:
   - Parcels
   properties:
   - type: OpenAPI
