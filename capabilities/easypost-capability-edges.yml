@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 2
 edges:
 - tag: Trackers
   spec_file: easypost-trackers-api-openapi.yml
@@ -23,3 +23,14 @@ edges:
     Tracker'
   reason: Trackers register shipments for carrier status tracking and retrieve their status, which is
     squarely shipment visibility and tracking.
+- tag: Shipments
+  spec_file: easypost-shipments-api-openapi.yml
+  capability_id: BC-520.50
+  capability_id_l1: BC-520
+  capability_name: Logistics Operations Management
+  confidence: 0.8
+  evidence: POST /shipments createShipment; POST /shipments/{id}/buy buyShipment; GET /shipments/{id}/label
+    'Convert a shipment label format'
+  reason: Creating shipments, buying carrier rates and producing/refunding labels across 100+ carriers
+    is execution of outbound transport operations — logistics operations management.
+  recovered_from: vertical-insurance-edges.json
