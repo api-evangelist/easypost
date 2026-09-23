@@ -1,12 +1,7 @@
 {
   "provider": "easypost",
   "sources": [
-    "easypost-addresses-api-openapi.yml",
-    "easypost-parcels-api-openapi.yml",
-    "easypost-refunds-api-openapi.yml",
-    "easypost-reports-api-openapi.yml",
-    "easypost-shipments-api-openapi.yml",
-    "easypost-trackers-api-openapi.yml"
+    "_original/easypost-openapi.yml"
   ],
   "outputs": [
     "easypost-addresses-api-openapi.yml",
@@ -19,6 +14,38 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "easypost-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "easypost-openapi.yml: tagged paths POST /shipments -> Shipments",
+    "easypost-openapi.yml: tagged paths GET /shipments -> Shipments",
+    "easypost-openapi.yml: tagged paths GET /shipments/{id} -> Shipments",
+    "easypost-openapi.yml: tagged paths POST /shipments/{id}/buy -> Shipments",
+    "easypost-openapi.yml: tagged paths GET /shipments/{id}/label -> Shipments",
+    "easypost-openapi.yml: tagged paths POST /shipments/{id}/refund -> Shipments",
+    "easypost-openapi.yml: tagged paths POST /addresses -> Addresses",
+    "easypost-openapi.yml: tagged paths GET /addresses -> Addresses",
+    "easypost-openapi.yml: tagged paths GET /addresses/{id} -> Addresses",
+    "easypost-openapi.yml: tagged paths POST /parcels -> Parcels",
+    "easypost-openapi.yml: tagged paths POST /trackers -> Trackers",
+    "easypost-openapi.yml: tagged paths GET /trackers -> Trackers",
+    "easypost-openapi.yml: tagged paths GET /trackers/{id} -> Trackers",
+    "easypost-openapi.yml: tagged paths POST /refunds -> Refunds",
+    "easypost-openapi.yml: tagged paths POST /reports/{type} -> Reports",
+    "easypost-openapi.yml: declared missing tag: Addresses",
+    "easypost-openapi.yml: declared missing tag: Parcels",
+    "easypost-openapi.yml: declared missing tag: Refunds",
+    "easypost-openapi.yml: declared missing tag: Reports",
+    "easypost-openapi.yml: declared missing tag: Shipments",
+    "easypost-openapi.yml: declared missing tag: Trackers",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "easypost-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easypost-parcels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easypost-refunds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easypost-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easypost-shipments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "easypost-trackers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
