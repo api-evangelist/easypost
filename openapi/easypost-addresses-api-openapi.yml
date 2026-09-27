@@ -77,6 +77,13 @@ paths:
       tags:
       - Addresses
 components:
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   schemas:
     Address:
       type: object
@@ -103,13 +110,6 @@ components:
           type: string
         email:
           type: string
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   securitySchemes:
     EasyPostBasic:
       type: http

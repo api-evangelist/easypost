@@ -162,16 +162,34 @@ paths:
       - Shipments
 components:
   schemas:
-    Error:
+    ShipmentInput:
       type: object
       properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
+        to_address:
+          $ref: '#/components/schemas/Address'
+        from_address:
+          $ref: '#/components/schemas/Address'
+        parcel:
+          $ref: '#/components/schemas/Parcel'
+        carrier_accounts:
+          type: array
+          items:
+            type: string
+    Rate:
+      type: object
+      properties:
+        id:
+          type: string
+        service:
+          type: string
+        carrier:
+          type: string
+        rate:
+          type: string
+        currency:
+          type: string
+        delivery_days:
+          type: integer
     Address:
       type: object
       properties:
@@ -219,19 +237,6 @@ components:
         postage_label:
           type: object
           additionalProperties: true
-    ShipmentInput:
-      type: object
-      properties:
-        to_address:
-          $ref: '#/components/schemas/Address'
-        from_address:
-          $ref: '#/components/schemas/Address'
-        parcel:
-          $ref: '#/components/schemas/Parcel'
-        carrier_accounts:
-          type: array
-          items:
-            type: string
     Parcel:
       type: object
       properties:
@@ -247,21 +252,16 @@ components:
           type: number
         predefined_package:
           type: string
-    Rate:
+    Error:
       type: object
       properties:
-        id:
-          type: string
-        service:
-          type: string
-        carrier:
-          type: string
-        rate:
-          type: string
-        currency:
-          type: string
-        delivery_days:
-          type: integer
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
   parameters:
     IdPath:
       in: path
