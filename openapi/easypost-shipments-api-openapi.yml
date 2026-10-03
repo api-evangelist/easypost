@@ -162,6 +162,46 @@ paths:
       - Shipments
 components:
   schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street1:
+          type: string
+        street2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+    Parcel:
+      type: object
+      properties:
+        id:
+          type: string
+        length:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        weight:
+          type: number
+        predefined_package:
+          type: string
     ShipmentInput:
       type: object
       properties:
@@ -190,31 +230,16 @@ components:
           type: string
         delivery_days:
           type: integer
-    Address:
+    Error:
       type: object
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        company:
-          type: string
-        street1:
-          type: string
-        street2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip:
-          type: string
-        country:
-          type: string
-        phone:
-          type: string
-        email:
-          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
     Shipment:
       type: object
       properties:
@@ -237,38 +262,6 @@ components:
         postage_label:
           type: object
           additionalProperties: true
-    Parcel:
-      type: object
-      properties:
-        id:
-          type: string
-        length:
-          type: number
-        width:
-          type: number
-        height:
-          type: number
-        weight:
-          type: number
-        predefined_package:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-  parameters:
-    IdPath:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   responses:
     Unauthorized:
       description: Invalid API key
@@ -276,6 +269,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    IdPath:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
   securitySchemes:
     EasyPostBasic:
       type: http
