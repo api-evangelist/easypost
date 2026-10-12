@@ -19,5 +19,5 @@
     property: schemas.CarrierDetails.carrier_name
     detected_by: detect-carrier-edges.py
     detected: '2026-10-12'
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
