@@ -1,3 +1,30 @@
+generated: '2026-10-20'
+method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/easypost/integrations
+checked:
+- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
+- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://fivetran.com/docs-sitemap.xml
+- https://fivetran.com/docs/connectors/partner-built-program
+- https://zapier.com/api/v4/apps/
+- shopify/integrations/shopify-integration-edges.yml
+- https://composio.dev/toolkits/easypost
+- https://monid.ai/tools/easypost
+- https://n8n.io/integrations/easypost/
+- https://zapier.com/apps/easypost/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: easypost
+  url: https://zapier.com/apps/easypost/integrations
+  external_url: https://www.easypost.com/
+  partner_tier: null
+  triggers: []
+  actions: []
+  searches: []
 edges:
 - partner_name: karrio
   partner: karrio
@@ -115,14 +142,4 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-generated: '2026-10-12'
-method: searched
-checked:
-- https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
-- https://connectors.airbyte.com/files/registries/v0/oss_registry.json
-- https://fivetran.com/docs-sitemap.xml
-- https://fivetran.com/docs/connectors/partner-built-program
-- https://zapier.com/api/v4/apps/
-- shopify/integrations/shopify-integration-edges.yml
-source:
-- shopify/integrations/shopify-integration-edges.yml
+templates: []
