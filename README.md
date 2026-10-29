@@ -1,4 +1,4 @@
-# EasyPost (easypost)
+# EasyPost
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,149 @@
 
 EasyPost is a multi-carrier shipping API platform for the United States and international markets. It exposes a REST API spanning shipments, rating, labels, tracking, addresses, parcels, insurance, claims, pickups, scan forms, refunds, batches, end-shippers, reports, customs info, carrier accounts, and webhooks. EasyPost integrates 100+ carriers including USPS, UPS, FedEx, DHL, Canada Post, and Royal Mail.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/easypost/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/easypost/refs/heads/main/apis.yml)
+**Areas:** Shipping · Logistics · Multi-Carrier · Tracking · Labels · Insurance
 
-## Tags
+## EasyPost on APIs.io
 
-- Shipping
-- Logistics
-- Multi-Carrier
-- Tracking
-- Labels
-- Insurance
+Everything profiled for EasyPost is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/easypost/](https://apis.io/providers/easypost/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (11)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-30
+- [EasyPost Shipping API](https://apis.io/apis/easypost/shipping/) — Core REST API. Resources: Shipments (immutable; ship + buy rate), Rates, Addresses, Parcels, CustomsInfo, Forms, Labels (PNG/PDF/ZPL/EPL2), Pickups,…
+- [EasyPost Tracking API](https://apis.io/apis/easypost/tracking/) — Standalone Tracking API: create Trackers from a tracking code + carrier, receive webhooks on status changes, query historical scan events. Standard Tracking…
+- [EasyPost Webhooks API](https://apis.io/apis/easypost/webhooks/) — Asynchronous Event delivery surface. EasyPost POSTs Event objects to subscriber URLs whenever asynchronous objects (batches, trackers, scan forms, refunds,…
+- [EasyPost Insurance & Claims API](https://apis.io/apis/easypost/insurance-claims/) — Insurance API: insure shipments at 1% of declared value with a $1 minimum. Claims API: file and manage damage/loss/theft claims via REST.
+- [EasyPost Reports API](https://apis.io/apis/easypost/reports/) — Generate Shipment, Tracker, Refund, Payment Log, and other reports asynchronously; download CSVs from the URL returned in the report object.
+- [EasyPost Addresses API](https://apis.io/apis/easypost/easypost-addresses-api/) — The Addresses API from EasyPost — 2 operation(s) for addresses.
+- [EasyPost Parcels API](https://apis.io/apis/easypost/easypost-parcels-api/) — The Parcels API from EasyPost — 1 operation(s) for parcels.
+- [EasyPost Refunds API](https://apis.io/apis/easypost/easypost-refunds-api/) — The Refunds API from EasyPost — 1 operation(s) for refunds.
+- [EasyPost Reports API](https://apis.io/apis/easypost/easypost-reports-api/) — The Reports API from EasyPost — 1 operation(s) for reports.
+- [EasyPost Shipments API](https://apis.io/apis/easypost/easypost-shipments-api/) — The Shipments API from EasyPost — 5 operation(s) for shipments.
+- [EasyPost Trackers API](https://apis.io/apis/easypost/easypost-trackers-api/) — The Trackers API from EasyPost — 2 operation(s) for trackers.
 
-## APIs
+### Published properties
 
-### EasyPost Shipping API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Core REST API. Resources: Shipments (immutable; ship + buy rate), Rates, Addresses, Parcels, CustomsInfo, Forms, Labels (PNG/PDF/ZPL/EPL2), Pickups, ScanForms, Refunds, Batches, EndShippers, CarrierAccounts. Authentication uses your API key as HTTP Basic auth username (EASYPOST_API_KEY). Test and Production keys are issued separately.
+#### AsyncAPI (1)
 
-- **Human URL:** [https://docs.easypost.com/docs/shipments](https://docs.easypost.com/docs/shipments)
-- **Base URL:** `https://api.easypost.com/v2`
+Event-driven and webhook contracts.
 
-#### Tags
+- [EasyPost Webhooks API](https://apis.io/asyncapis/easypost/easypost-webhooks-asyncapi/)
 
-- Shipments
-- Rates
-- Labels
-- Addresses
-- Pickups
-- Refunds
+#### Event channels (1)
 
-#### Properties
+Individual events and webhooks the provider emits.
 
-- [Documentation](https://docs.easypost.com/)
-- [Authentication](https://docs.easypost.com/docs/authentication)
-- [Postman Collection](collections/easypost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easypost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [webhook](https://apis.io/channels/easypost/webhook/)
 
-### EasyPost Tracking API
+#### Agentic access (1)
 
-Standalone Tracking API: create Trackers from a tracking code + carrier, receive webhooks on status changes, query historical scan events. Standard Tracking and Advanced Tracking tiers are available with different per-shipment pricing.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://docs.easypost.com/docs/trackers](https://docs.easypost.com/docs/trackers)
-- **Base URL:** `https://api.easypost.com/v2`
+- [Easypost Agentic Access](https://apis.io/agentic-access/easypost/easypost-agentic-access/)
 
-#### Tags
+#### Collections (7)
 
-- Tracking
-- Webhooks
+Postman and Open Collection request collections.
 
-#### Properties
+- [EasyPost Shipping API](https://apis.io/collections/easypost/open-easypost/)
+- [EasyPost Shipping Addresses API](https://apis.io/collections/easypost/open-easypost-addresses-api/)
+- [EasyPost Shipping Addresses Parcels API](https://apis.io/collections/easypost/open-easypost-parcels-api/)
+- [EasyPost Shipping Addresses Refunds API](https://apis.io/collections/easypost/open-easypost-refunds-api/)
+- [EasyPost Shipping Addresses Reports API](https://apis.io/collections/easypost/open-easypost-reports-api/)
+- [EasyPost Shipping Addresses Shipments API](https://apis.io/collections/easypost/open-easypost-shipments-api/)
+- [EasyPost Shipping Addresses Trackers API](https://apis.io/collections/easypost/open-easypost-trackers-api/)
 
-- [Documentation](https://docs.easypost.com/docs/trackers)
-- [Postman Collection](collections/easypost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easypost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (1)
 
-### EasyPost Webhooks API
+Spectral rulesets for the provider's contracts.
 
-Asynchronous Event delivery surface. EasyPost POSTs Event objects to subscriber URLs whenever asynchronous objects (batches, trackers, scan forms, refunds, reports, payments, claims, insurance, shipment invoices) change state. Each delivery is signed with an HMAC-SHA256 signature in the X-Hmac-Signature header, derived from a per-webhook secret. Subscribers must return a 2XX status code; non-2XX responses are retried.
+- [EasyPost — asyncapi rules](https://apis.io/rules/easypost/easypost-asyncapi-spectral-rules/)
 
-- **Human URL:** [https://docs.easypost.com/docs/webhooks](https://docs.easypost.com/docs/webhooks)
-- **Base URL:** `https://api.easypost.com/v2`
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Webhooks
-- Events
-- AsyncAPI
-- HMAC
+- [Easypost Authentication](https://apis.io/security/easypost/easypost-authentication/)
+- [Easypost Domain Security](https://apis.io/security/easypost/easypost-domain-security/)
+- [Easypost Trust Center](https://apis.io/security/easypost/easypost-trust-center/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://docs.easypost.com/docs/webhooks)
-- [Events](https://docs.easypost.com/docs/events)
-- [Payloads](https://docs.easypost.com/docs/events/payloads)
-- [AsyncAPI](asyncapi/easypost-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/easypost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easypost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### EasyPost Insurance & Claims API
+- [Easypost Plans Pricing](https://apis.io/plans/easypost/easypost-plans-pricing/)
 
-Insurance API: insure shipments at 1% of declared value with a $1 minimum. Claims API: file and manage damage/loss/theft claims via REST.
+#### Rate limits (1)
 
-- **Human URL:** [https://docs.easypost.com/docs/insurance](https://docs.easypost.com/docs/insurance)
-- **Base URL:** `https://api.easypost.com/v2`
+Published request limits.
 
-#### Tags
+- [Easypost Rate Limits](https://apis.io/rate-limits/easypost/easypost-rate-limits/)
 
-- Insurance
-- Claims
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://docs.easypost.com/docs/insurance)
-- [Postman Collection](collections/easypost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easypost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Easypost Finops](https://apis.io/finops/easypost/easypost-finops/)
 
-### EasyPost Reports API
+## Where to find this API
 
-Generate Shipment, Tracker, Refund, Payment Log, and other reports asynchronously; download CSVs from the URL returned in the report object.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://docs.easypost.com/docs/reports](https://docs.easypost.com/docs/reports)
-- **Base URL:** `https://api.easypost.com/v2`
-
-#### Tags
-
-- Reports
-- Reconciliation
-
-#### Properties
-
-- [Documentation](https://docs.easypost.com/docs/reports)
-- [Postman Collection](collections/easypost.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/easypost.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/easypost)
-- [LinkedIn](https://www.linkedin.com/company/easypost)
 - [Website](https://www.easypost.com/)
-- [Developer Portal](https://docs.easypost.com/)
-- [Plans](plans/easypost-plans-pricing.yml)
-- [Rate Limits](rate-limits/easypost-rate-limits.yml)
-- [Fin Ops](finops/easypost-finops.yml)
-- [Integrations](https://www.easypost.com/partners/)
-- [L L Ms Txt](https://docs.easypost.com/llms.txt)
+- [Blog](https://www.easypost.com/feed/)
+- [GitHub](https://github.com/easypost)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 54.2 |
+| Contract governance | 13.6 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 15.8 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 14.9** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/easypost/](https://apis.io/providers/easypost/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EasyPost: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/easypost/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
